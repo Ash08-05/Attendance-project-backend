@@ -9,7 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // Middleware to parse JSON
-app.use(cors()); // Enable CORS
+app.use(cors({
+  origin: "https://attendance-portal-test.netlify.app", // Replace with your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+  credentials: true // Allow cookies if needed
+}));
+
 
 
 // ✅ API to Get All Employees
